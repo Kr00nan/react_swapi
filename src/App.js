@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './components/NavBar';
 import { Header, Card, Container } from "semantic-ui-react";
 import Axios from 'axios';
 
@@ -34,13 +33,14 @@ function App() {
   }
 
   return (
+    <>
+    <Header>Star Wars Characters Using SWAPI</Header>
     <Container>
-      <Header as="h1">Star Wars Characters</Header>
-      <br />
       <Card.Group>
         {renderPeople()}
       </Card.Group>
     </Container>
+    </>
   )
 }
 
