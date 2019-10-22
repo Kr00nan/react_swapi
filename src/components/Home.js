@@ -44,16 +44,29 @@ export default function Home() {
   // }, []);
 
   const renderPeople = () => {
+    const styles = {
+      card: {
+        textAlign: 'center',
+        width: '200px',
+        height: '100px',
+        color: 'black',
+      }
+    }
+
     if (people.length <= 0)
       return <h2>Error contacting SWAPI...</h2>
     return people.map(person => (
       <Card
         href='/character'
-        header={person.name}
-        meta={person.birth_year}
         character_url={person.url}
         homeworld_url={person.homeworld}
-      />
+        style={styles.card}
+      >
+        <Card.Content>
+        <Card.Header as='h3'>{person.name}</Card.Header>
+        <Card.Meta>Birth: {person.birth_year}</Card.Meta>
+        </Card.Content>
+      </Card>
     ))
   }
 
